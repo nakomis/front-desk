@@ -52,7 +52,14 @@ function loadEvents() {
 						html += '<div class="logo"><img src="'+data[i].sourcelogo+'"></div>';
 						html += '<div class="title"><span class="when">'+when+'</span> <a href="'+data[i].siteurl+'">'+escapeHTML(data[i].summaryDisplay)+'</a></div>';
 						html += '<div class="description">'+escapeHTMLNewLine(data[i].description)+'</div>';
+                        html += '<div class="qrcode" id="' + 'qrcode' + i + '"></div>';
 						$('#Panel'+i).html(html);
+                        new QRCode(document.getElementById("qrcode" + i), {
+                            text: data[i].siteurl,
+                            width: 75,
+                            height: 75,
+                            colorLight: '#F0F0F0'
+                        });
 					}
 				}
 		   });
